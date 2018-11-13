@@ -54,7 +54,10 @@ var vm = new Vue({
 		getMenuList : function(event) {
 			$.getJSON("sys/menu/user?_" + $.now(),
 			function(r) {
-				vm.menuList = r.menuList;
+				var _menuList = r.menuList;
+                for ( var key in _menuList){
+                	vm.$set(vm.menuList,key,_menuList[key])
+				}
 			});
 		}
 		// ,
@@ -134,9 +137,7 @@ var vm = new Vue({
 		}
 	},
 	created : function() {
-        this.getMenuList();
-        //	this.getPermList();
-        this.getUser();
+       
 		// 菜单点击事件
 		$(document).off('click', ".sidebar-menu li a").on('click', ".sidebar-menu li a", function(e) {
 			var $this = $(this);
@@ -174,6 +175,11 @@ var vm = new Vue({
 				e.preventDefault();
 			}
 		});
+	},
+	mounted:function(){
+	 this.getMenuList();
+     //this.getPermList();
+     this.getUser();
 	},
 	updated : function() {
 		// 路由
