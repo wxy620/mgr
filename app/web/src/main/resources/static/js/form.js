@@ -62,10 +62,10 @@ $.RemoveForm = function(options) {
 	dialogConfirm(options.msg, function() {
 		dialogLoading(true);
 		window.setTimeout(function() {
-			var postdata = options.param;
+			options.param;
 			$.ajax({
 				url : options.url,
-				data : JSON.stringify(postdata),
+				data : options.param,
 				type : options.type,
 				dataType : options.dataType,
 				contentType : options.contentType,
