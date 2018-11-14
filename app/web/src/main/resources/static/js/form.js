@@ -4,7 +4,7 @@
 		param : {},
 		type : "post",
 		dataType : "json",
-		contentType : 'application/json',
+        contentType : 'application/x-www-form-urlencoded',
 		success : null,
 		close : true
 	};
@@ -13,7 +13,7 @@
 	window.setTimeout(function() {
 		$.ajax({
 			url : options.url,
-			data : JSON.stringify(options.param),
+			data : options.param,
 			type : options.type,
 			dataType : options.dataType,
 			contentType : options.contentType,
@@ -55,7 +55,7 @@ $.RemoveForm = function(options) {
 		param : [],
 		type : "post",
 		dataType : "json",
-		contentType : 'application/json',
+        contentType : 'application/x-www-form-urlencoded',
 		success : null
 	};
 	var options = $.extend(defaults, options);
@@ -104,13 +104,13 @@ $.SetForm = function(options) {
 		param : [],
 		type : "post",
 		dataType : "json",
-		contentType : 'application/json',
+		contentType : 'application/x-www-form-urlencoded',
 		success : null
 	};
 	var options = $.extend(defaults, options);
 	$.ajax({
 		url : options.url,
-		data : JSON.stringify(options.param),
+		data : options.param,
 		type : options.type,
 		dataType : options.dataType,
 		contentType : options.contentType,
@@ -147,7 +147,7 @@ $.ConfirmForm = function(options) {
 		param : {},
 		type : "post",
 		dataType : "json",
-		contentType : 'application/json',
+        contentType : 'application/x-www-form-urlencoded',
 		success : null,
 		close : true
 	};
@@ -175,7 +175,7 @@ $.ConfirmAjax = function(options) {
 			var postdata = options.param;
 			$.ajax({
 				url : options.url,
-				data : JSON.stringify(postdata),
+				data : postdata,
 				type : options.type,
 				dataType : options.dataType,
 				contentType : options.contentType,
